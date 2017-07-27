@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { FotoModule } from './foto/foto.module';
 import { PainelModule } from './painel/painel.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import 'rxjs/add/operator/map';
         FotoModule, 
         HttpModule, 
         PainelModule, 
-        routing ], //injecao de dependência
+        routing,
+        FormsModule ], //injecao de dependência
     declarations: [ AppComponent, CadastroComponent, ListagemComponent ], //importar componentes do projeto. O que faz parte do Modulo
     bootstrap: [ AppComponent ] //O que sera inicializado primeiro
 

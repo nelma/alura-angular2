@@ -8,8 +8,7 @@ import { Component, Input } from '@angular/core';
 export class FotoComponent {
 
     //Aceita receber valores: inbound properties
-    @Input() titulo: string;
-    @Input() url: string;
-    descricao: string;
-
+    @Input() titulo: string = '';
+    @Input() url: string = '';
+    descricao: string = '';
 }
