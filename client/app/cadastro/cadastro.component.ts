@@ -2,6 +2,9 @@ import { FotoComponent } from './../foto/foto.component';
 import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
+//FormBuilder ajuda a criar uma instancia do formGroup
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'; //para gerenciar um ou mais inputs do controle
+
 @Component({
     moduleId: module.id,
     selector: 'cadastro',
@@ -10,9 +13,18 @@ import { Http, Headers } from '@angular/http';
 export class CadastroComponent {
     foto: FotoComponent = new FotoComponent();
     http: Http;
+    meuForm: FormGroup;
 
-    constructor(http: Http) {
+    //injecao de dependencia no construtor
+    constructor(http: Http, fb: FormBuilder) {
         this.http = http;
+        this.meuForm = fb.group({
+            titulo: ['', Validators.compose(
+                [Validators.required, Validators.minLength(4)]
+            )],
+            url: ['', Validators.required],
+            descricao: ['']
+        })
     }
 
     cadastrar(event) {
