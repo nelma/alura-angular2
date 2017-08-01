@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';//indica que a aplicação vai rodar no navegador
 
 //ReactiveFormsModule para fazer a validacao baseada no modelo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
