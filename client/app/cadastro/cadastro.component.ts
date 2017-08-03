@@ -51,15 +51,13 @@ export class CadastroComponent {
         event.preventDefault();
 
         this.service.cadastra(this.foto)
-            .subscribe(() => {
-                this.foto = new FotoComponent();
-                console.log('Foto salva com sucesso');
-
-                this.router.navigate(['']);
-            }, erro => {
-                console.log(erro);
-            });
-
-        console.log(this.foto); 
+            .subscribe(res => {
+            this.mensagem = res.obterMensagem();
+            this.foto = new FotoComponent();
+            if(!res.ehInclusao()) this.router.navigate(['']);
+        }, erro => {
+            console.log(erro);
+            this.mensagem = 'Não foi possível savar a foto';
+        });
     }
 }
