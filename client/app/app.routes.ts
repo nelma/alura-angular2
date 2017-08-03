@@ -5,7 +5,8 @@ import { ListagemComponent } from './listagem/listagem.component';
 const appRoutes: Routes = [
     {path: '', component: ListagemComponent},
     {path: 'cadastro', component: CadastroComponent},
-    {path: '**', component: ListagemComponent} //caso um path que nao exista, retorna listagem
+    {path: 'cadastro/:id', component: CadastroComponent},
+    {path: '**', redirectTo: ''}//caso um path que nao exista, retorna listagem
 ];
 
 //Compilando as rotas para o angular entender
