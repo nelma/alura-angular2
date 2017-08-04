@@ -1,8 +1,8 @@
-import { FotoService } from './../foto/foto.service';
 import { FotoComponent } from './../foto/foto.component';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { FotoService } from '../foto/foto.service';
+import { PainelComponent } from '../painel/painel.component';
 
 @Component({
     moduleId: module.id,
@@ -29,17 +29,20 @@ export class ListagemComponent{
             );
     }
 
-    remove(foto): void {
+    remove(foto: FotoComponent, painel: PainelComponent): void {
         console.log(foto);
 
         this.service.remove(foto).subscribe(
             () => {
-                console.log("Foto removida");
-                let novasFotos = this.fotos.slice(0);
-                let indice = novasFotos.indexOf(foto);
-                novasFotos.splice(indice, 1);
-                this.fotos = novasFotos;
-                this.mensagem = 'Foto removida com sucesso';
+
+                painel.fadeOut(() => {
+                    console.log("Foto removida");
+                    let novasFotos = this.fotos.slice(0);
+                    let indice = novasFotos.indexOf(foto);
+                    novasFotos.splice(indice, 1);
+                    this.fotos = novasFotos;
+                    this.mensagem = 'Foto removida com sucesso';
+                });
             },  
             erro => {
                 console.log(erro)
