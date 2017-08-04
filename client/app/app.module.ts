@@ -8,6 +8,7 @@ import { PainelModule } from './painel/painel.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
+import { BotaoModule } from './botao/botao.module';
 
 //importar módulo que já possui um proovider configurado
 import { HttpModule } from '@angular/http';
@@ -26,7 +27,8 @@ import 'rxjs/add/operator/map';
         PainelModule, 
         routing,
         FormsModule,
-        ReactiveFormsModule ], //injecao de dependência
+        ReactiveFormsModule,
+        BotaoModule ], //injecao de dependência
     declarations: [ AppComponent, CadastroComponent, ListagemComponent ], //importar componentes do projeto. O que faz parte do Modulo
     bootstrap: [ AppComponent ] //O que sera inicializado primeiro
 
